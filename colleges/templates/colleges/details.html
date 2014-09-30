@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'colleges/style.css' %}" />
+
+<h3 align=right> <a href="/colleges/logmeout/">Logout</a> </h3>
+{% for coll in college %}
+<h5 align=right> <a href="/colleges/districts/{{ coll.district }}/">Back to {{ coll.district }}</a> </h5>
+	<h1>College Name: {{ coll.college_name }}</h1>
+	<h2>College ID: {{ coll.college_id }} </h2>
+	<h2>District: {{ coll.district }} </h2>
+	{% if coll.image1 != "NA" %}
+		<img src = {{coll.image1}} />
+	{% endif %}
+	{% if coll.image2 != "NA" %}
+		<img src = {{coll.image2}} />
+	{% endif %}
+	{% if coll.image3 != "NA" %}
+		<img src = {{coll.image3}} />
+	{% endif %}
+{% endfor %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+

@@ -1,0 +1,11 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'colleges/style.css' %}" />
+
+<h3 align=right> <a href="/colleges/logmeout/">Logout</a> </h3>
+<h5 align=right> <a href="/colleges/districts/">Back to Districts</a> </h5>
+<table width=100% align=center>
+{% for college in college_list %}
+    <tr><td><a href="/colleges/{{ college.college_id }}/">{{ college.college_name }} -- {{ college.college_id }}</a></td></tr>
+{% endfor %}
+</table>
+
